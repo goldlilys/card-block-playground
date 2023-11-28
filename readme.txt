@@ -42,11 +42,19 @@ My usual development workflow for Gutenberg blocks is to:
 2. Update the edit.js file to output the fields in the Admin Edit Area using the default WP components available
 3. Update the save.js file to show the results from the edit.js in the format to be displayed in the Front-end
 
+== Accessibility and Development ==
+- For Accessibility, I've added aria-labels to all the inputs so that the description for each input can be used by the devices for screen readers.
+
+- Added Placeholders for all the inputs in the Edit part so it's clear what those fields are for.
+
+- I was trying to add tabindex for all the inputs too so using the keyboard will work easily when navigation each field, but it's not working because it's going to the WordPress editing buttons instead of staying in the Card Block section.
+
 == Issues ==
 - Had issues when building out the Registration Link component thinking I can use the ExternalLink Component, but that wouldn't allow me to add a URL so I found that using the TextControl component works fine as long as the JSON data includes a href attribute and selector has a anchor tag. I found it by checking StackOverflow and researching if there's a better way to create links.
 
-Having issues with getting the tags or categories to list out for the bottom or more like I tried using the CheckboxControl Component and it's not outputting the options.
-Is this not the right component to use to get the categories or make a list of categories to choose from? https://developer.wordpress.org/block-editor/reference-guides/components/checkbox-control/
+- DateTimePicker Component is outputting a timestamp and need a way to format the output. Used the default @wordpress/i18n for formatting the date.
+
+- Having issues with getting the tags or categories to list out for the bottom or more like I tried using the CheckboxControl Component and it's not outputting the options. https://developer.wordpress.org/block-editor/reference-guides/components/checkbox-control/ So instead used SelectControl with manual options to display something.
 
 
 

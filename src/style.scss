@@ -10,24 +10,46 @@
 }
 .card {
 	padding: 0;
+	margin: 40px auto;
 	font-family: "Work Sans", sans-serif !important;
+	border: #eeeded 1px solid;
+	width: 580px;
 
 	&:hover {
-		box-shadow: 0 0 0 0 0.25rem;
+		background-color: #005ead;
+
+		.header {
+			background-color: #005ead;
+		}
+
+		.body,
+		.card-title,
+		.card-description,
+		.header {
+			color: #ffffff;
+		}
 	}
 
 	.header {
 		background-color: #eeeded;
 		color: #222222;
 		display: flex;
-		border-bottom: #cccccc 1px solid;
+		border-bottom: #eeeded 1px solid;
+		font-size: 18px;
 	}
 	.header > div {
 		padding: 15px 20px;
 	}
+	.body {
+		padding: 10px;
+	}
 	.card-date {
 		flex: 20%;
-		border-right: #cccccc 1px solid;
+		border-right: #dedede 1px solid;
+		text-align: center;
+	}
+	.month {
+		text-transform: uppercase;
 	}
 	.card-location {
 		flex: 80%;
@@ -36,11 +58,11 @@
 		color: #005ead;
 		font-size: 32px;
 		line-height: 40px;
-		margin: 10px 20px;
 	}
+	.card-title,
 	.card-description,
 	.card-registration-link {
-		margin: 10px 20px;
+		margin: 10px;
 	}
 	.card-registration-link a {
 		background-color: #c5e5ec;
@@ -61,6 +83,18 @@
 		overflow: auto;
 		padding: 10px 20px;
 		margin: 20px 0 0;
+		ul {
+			list-style: none;
+			padding: 0;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		li {
+			display: inline-block;
+			color: #005ead;
+			font-weight: bold;
+		}
 	}
 }
 .wp-block-create-block-clockwork-card-block {

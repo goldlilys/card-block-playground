@@ -17,23 +17,43 @@
 
 .card {
   padding: 0;
+  margin: 40px auto;
   font-family: "Work Sans", sans-serif !important;
+  border: #eeeded 1px solid;
+  width: 580px;
 }
 .card:hover {
-  box-shadow: 0 0 0 0 0.25rem;
+  background-color: #005ead;
+}
+.card:hover .header {
+  background-color: #005ead;
+}
+.card:hover .body,
+.card:hover .card-title,
+.card:hover .card-description,
+.card:hover .header {
+  color: #ffffff;
 }
 .card .header {
   background-color: #eeeded;
   color: #222222;
   display: flex;
-  border-bottom: #cccccc 1px solid;
+  border-bottom: #eeeded 1px solid;
+  font-size: 18px;
 }
 .card .header > div {
   padding: 15px 20px;
 }
+.card .body {
+  padding: 10px;
+}
 .card .card-date {
   flex: 20%;
-  border-right: #cccccc 1px solid;
+  border-right: #dedede 1px solid;
+  text-align: center;
+}
+.card .month {
+  text-transform: uppercase;
 }
 .card .card-location {
   flex: 80%;
@@ -42,11 +62,11 @@
   color: #005ead;
   font-size: 32px;
   line-height: 40px;
-  margin: 10px 20px;
 }
+.card .card-title,
 .card .card-description,
 .card .card-registration-link {
-  margin: 10px 20px;
+  margin: 10px;
 }
 .card .card-registration-link a {
   background-color: #c5e5ec;
@@ -67,6 +87,18 @@
   overflow: auto;
   padding: 10px 20px;
   margin: 20px 0 0;
+}
+.card .card-categories ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.card .card-categories li {
+  display: inline-block;
+  color: #005ead;
+  font-weight: bold;
 }
 
 .wp-block-create-block-clockwork-card-block {

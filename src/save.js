@@ -5,7 +5,7 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps, RichText } from '@wordpress/block-editor';
-import { dateI18n, __ } from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -20,23 +20,30 @@ export default function save({ attributes }) {
 	const blockProps = useBlockProps.save();
 	const { title, description, date, time, location, registrationLink, selectedCategories } = attributes;
 
+	const dateObj = new Date(attributes.date);
+	const day = { weekday: 'long' };
+	const monthday = { month: 'short', day: 'numeric' };
+	const formattedDay = dateObj.toLocaleDateString(undefined, day);
+	const formattedMonth = dateObj.toLocaleDateString(undefined, monthday);
+
 	return (
 		<div className="card">
-			<div class="header">
-				<div className="card-date">{date}</div>
+			<div className="header">
+				<div className="card-date"><div className="day">{formattedDay}</div><div className="month">{formattedMonth}</div></div>
 				<div className="card-location">{time} <br /> {location}</div>
 			</div>
-			<h3 className="card-title">{title}</h3>
-			<div className="card-description">
-				<RichText.Content
-					value={description}
-				/>
-			</div>
-			<div className="card-registration-link">
-				<a href={registrationLink}>Register now</a>
+			<div className="body">
+				<h3 className="card-title">{title}</h3>
+				<div className="card-description">
+					<RichText.Content
+						value={description}
+					/>
+				</div>
+				<div className="card-registration-link">
+					<a aria-label="Registration Link to the Event Site" href={registrationLink} target='_blank'>Register now</a>
+				</div>
 			</div>
 			<div className="card-categories">
-				<strong>Categories</strong>
 				<ul>
 					{selectedCategories.map((category, index) => (
 						<li key={index}>{category}</li>

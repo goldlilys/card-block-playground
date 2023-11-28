@@ -102,9 +102,9 @@ function Edit({
       registrationLink: newLink
     });
   };
-  const onChangeCategories = newCategories => {
+  const onChangeCategories = selectedCategories => {
     setAttributes({
-      selectedCategories: newCategories
+      selectedCategories
     });
   };
 
@@ -118,57 +118,64 @@ function Edit({
     onChange: onChangeTime,
     value: time,
     placeholder: "Your Event Time: 11am - 12pm EST",
-    className: "card-time"
+    className: "card-time",
+    tabindex: "0"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
     label: "Location",
     "aria-label": "Your Event Location: City, State",
     onChange: onChangeLocation,
     value: location,
     placeholder: "Your Event Location: City, State",
-    className: "card-location"
+    className: "card-location",
+    tabindex: "0"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
     label: "Event Title",
     "aria-label": "Your Event Title",
     onChange: onChangeTitle,
     value: title,
     placeholder: "Your Event Title",
-    className: "card-title"
+    className: "card-title",
+    tabindex: "0"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     ...blockProps,
     onChange: onChangeContent,
+    "aria-label": "Your Event Description",
     value: description,
     multiline: "p",
     placeholder: "Your Event Description",
+    tabindex: "0",
     formattingControls: ['bold', 'italic', 'underline']
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
     label: "Event Registration Link",
     "aria-label": "Your Event Registration Link",
     placeholder: "Event Registration Link",
     value: registrationLink,
-    onChange: onChangeLink
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-    label: "Categories",
-    "aria-label": "Your Event Tags",
-    checked: selectedCategories,
+    onChange: onChangeLink,
+    tabindex: "0"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+    label: "Select Categories",
+    multiple: true,
+    value: selectedCategories,
     onChange: onChangeCategories,
     options: [{
       label: 'Capital Markets',
-      value: 'capital-markets'
+      value: 'Capital Markets'
     }, {
       label: 'Corporate Compliance',
-      value: 'corporate-compliance'
+      value: 'Corporate Compliance'
     }, {
       label: 'Financial Services',
-      value: 'financial-services'
+      value: 'Financial Services'
     }, {
       label: 'Investment Company',
-      value: 'investment-company'
+      value: 'Investment Company'
     }]
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.DateTimePicker, {
     currentDate: date,
     onChange: onChangeDate,
     is12Hour: true,
-    className: "card-date"
+    className: "card-date",
+    tabindex: "0"
   }));
 }
 
@@ -279,15 +286,31 @@ function save({
     registrationLink,
     selectedCategories
   } = attributes;
+  const dateObj = new Date(attributes.date);
+  const day = {
+    weekday: 'long'
+  };
+  const monthday = {
+    month: 'short',
+    day: 'numeric'
+  };
+  const formattedDay = dateObj.toLocaleDateString(undefined, day);
+  const formattedMonth = dateObj.toLocaleDateString(undefined, monthday);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "card"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "header"
+    className: "header"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "card-date"
-  }, date), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "day"
+  }, formattedDay), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "month"
+  }, formattedMonth)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "card-location"
-  }, time, " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), " ", location)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+  }, time, " ", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), " ", location)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "body"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
     className: "card-title"
   }, title), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "card-description"
@@ -296,10 +319,12 @@ function save({
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "card-registration-link"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: registrationLink
-  }, "Register now")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    "aria-label": "Registration Link to the Event Site",
+    href: registrationLink,
+    target: "_blank"
+  }, "Register now"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "card-categories"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, "Categories"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, selectedCategories.map((category, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, selectedCategories.map((category, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
     key: index
   }, category)))));
 }

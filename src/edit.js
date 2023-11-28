@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps, RichText } from '@wordpress/block-editor';
-import { TextControl, CheckboxControl, DateTimePicker } from '@wordpress/components';
+import { TextControl, CheckboxControl, DateTimePicker, SelectControl } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -61,8 +61,8 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes({ registrationLink: newLink })
 	}
 
-	const onChangeCategories = (newCategories) => {
-		setAttributes({ selectedCategories: newCategories })
+	const onChangeCategories = (selectedCategories) => {
+		setAttributes({ selectedCategories })
 	}
 
 	// Display the components in the editor
@@ -75,6 +75,7 @@ export default function Edit({ attributes, setAttributes }) {
 				value={time}
 				placeholder="Your Event Time: 11am - 12pm EST"
 				className="card-time"
+				tabindex="0"
 			/>
 			<TextControl
 				label="Location"
@@ -83,6 +84,7 @@ export default function Edit({ attributes, setAttributes }) {
 				value={location}
 				placeholder="Your Event Location: City, State"
 				className="card-location"
+				tabindex="0"
 			/>
 			<TextControl
 				label="Event Title"
@@ -91,13 +93,16 @@ export default function Edit({ attributes, setAttributes }) {
 				value={title}
 				placeholder="Your Event Title"
 				className="card-title"
+				tabindex="0"
 			/>
 			<RichText
 				{...blockProps}
 				onChange={onChangeContent}
+				aria-label="Your Event Description"
 				value={description}
 				multiline="p"
 				placeholder="Your Event Description"
+				tabindex="0"
 				formattingControls={['bold', 'italic', 'underline']}
 			/>
 			<TextControl
@@ -106,17 +111,18 @@ export default function Edit({ attributes, setAttributes }) {
 				placeholder="Event Registration Link"
 				value={registrationLink}
 				onChange={onChangeLink}
+				tabindex="0"
 			/>
-			<CheckboxControl
-				label="Categories"
-				aria-label="Your Event Tags"
-				checked={selectedCategories}
+			<SelectControl
+				label="Select Categories"
+				multiple
+				value={selectedCategories}
 				onChange={onChangeCategories}
 				options={[
-					{ label: 'Capital Markets', value: 'capital-markets' },
-					{ label: 'Corporate Compliance', value: 'corporate-compliance' },
-					{ label: 'Financial Services', value: 'financial-services' },
-					{ label: 'Investment Company', value: 'investment-company' },
+					{ label: 'Capital Markets', value: 'Capital Markets' },
+					{ label: 'Corporate Compliance', value: 'Corporate Compliance' },
+					{ label: 'Financial Services', value: 'Financial Services' },
+					{ label: 'Investment Company', value: 'Investment Company' },
 				]}
 			/>
 			<DateTimePicker
@@ -124,6 +130,7 @@ export default function Edit({ attributes, setAttributes }) {
 				onChange={onChangeDate}
 				is12Hour={true}
 				className="card-date"
+				tabindex="0"
 			/>
 		</div>
 	);

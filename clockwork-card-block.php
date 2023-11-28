@@ -28,3 +28,9 @@ function clockwork_card_block_clockwork_card_block_block_init() {
     register_block_type(__DIR__ . '/build');
 }
 add_action('init', 'clockwork_card_block_clockwork_card_block_block_init');
+
+function enqueue_moment_js() {
+    wp_enqueue_script('moment-js', 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js', array(), null, true);
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_moment_js');
