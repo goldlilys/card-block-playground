@@ -46,7 +46,7 @@ export default function save({ attributes }) {
 			<div className="card-categories">
 				<ul>
 					{selectedCategories.map((category, index) => (
-						<li key={index}>{category}</li>
+						<li key={index}><a href="#">{category}</a></li>
 					))}
 				</ul>
 			</div>

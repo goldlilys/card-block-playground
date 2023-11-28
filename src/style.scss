@@ -17,9 +17,11 @@
 
 	&:hover {
 		background-color: #005ead;
+		transition: all 0.3s ease-in-out;
 
 		.header {
 			background-color: #005ead;
+			transition: all 0.3s ease-in-out;
 		}
 
 		.body,
@@ -92,9 +94,12 @@
 		}
 		li {
 			display: inline-block;
-			color: #005ead;
-			font-weight: bold;
-			font-size: 12px;
+			a {
+				color: #005ead;
+				font-weight: bold;
+				font-size: 12px;
+				text-decoration: none;
+			}
 		}
 	}
 }

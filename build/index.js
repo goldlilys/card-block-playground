@@ -326,7 +326,9 @@ function save({
     className: "card-categories"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, selectedCategories.map((category, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
     key: index
-  }, category)))));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: "#"
+  }, category))))));
 }
 
 /***/ }),

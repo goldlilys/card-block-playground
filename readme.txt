@@ -54,6 +54,8 @@ My usual development workflow for Gutenberg blocks is to:
 
 - DateTimePicker Component is outputting a timestamp and need a way to format the output. Used the default @wordpress/i18n for formatting the date.
 
+- After adding the Date formatting on the save.js, when editing the Block, the formatting of the date becomes Invalid. Got stuck on this part.
+
 - Having issues with getting the tags or categories to list out for the bottom or more like I tried using the CheckboxControl Component and it's not outputting the options. https://developer.wordpress.org/block-editor/reference-guides/components/checkbox-control/ So instead used SelectControl with manual options to display something.
 
 

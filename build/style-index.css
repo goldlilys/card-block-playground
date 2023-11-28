@@ -24,9 +24,11 @@
 }
 .card:hover {
   background-color: #005ead;
+  transition: all 0.3s ease-in-out;
 }
 .card:hover .header {
   background-color: #005ead;
+  transition: all 0.3s ease-in-out;
 }
 .card:hover .body,
 .card:hover .card-title,
@@ -97,9 +99,12 @@
 }
 .card .card-categories li {
   display: inline-block;
+}
+.card .card-categories li a {
   color: #005ead;
   font-weight: bold;
   font-size: 12px;
+  text-decoration: none;
 }
 
 .wp-block-create-block-clockwork-card-block {
