@@ -1,0 +1,76 @@
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap);
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss (1) ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+#clockwork-card-block-editor .components-base-control {
+  margin: 10px 0;
+}
+
+.card {
+  padding: 0;
+  font-family: "Work Sans", sans-serif !important;
+}
+.card:hover {
+  box-shadow: 0 0 0 0 0.25rem;
+}
+.card .header {
+  background-color: #eeeded;
+  color: #222222;
+  display: flex;
+  border-bottom: #cccccc 1px solid;
+}
+.card .header > div {
+  padding: 15px 20px;
+}
+.card .card-date {
+  flex: 20%;
+  border-right: #cccccc 1px solid;
+}
+.card .card-location {
+  flex: 80%;
+}
+.card .card-title {
+  color: #005ead;
+  font-size: 32px;
+  line-height: 40px;
+  margin: 10px 20px;
+}
+.card .card-description,
+.card .card-registration-link {
+  margin: 10px 20px;
+}
+.card .card-registration-link a {
+  background-color: #c5e5ec;
+  color: #005ead;
+  text-decoration: none;
+  padding: 0.7em;
+  margin: 10px 0;
+  display: block;
+  max-width: 150px;
+  font-weight: bold;
+  text-align: center;
+}
+.card .card-registration-link a:hover {
+  opacity: 0.8;
+}
+.card .card-categories {
+  background-color: #e5eff7;
+  overflow: auto;
+  padding: 10px 20px;
+  margin: 20px 0 0;
+}
+
+.wp-block-create-block-clockwork-card-block {
+  background-color: #cccccc;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/clockwork-card-block",
+  "version": "0.1.0",
+  "title": "Clockwork Card Block",
+  "category": "widgets",
+  "icon": "calendar",
+  "description": "Accessible Card Block scaffolded with Create Block tool.",
+  "example": {},
+  "keywords": [
+    "clockwork",
+    "cards",
+    "events"
+  ],
+  "supports": {
+    "align": [
+      "left",
+      "right",
+      "center"
+    ],
+    "html": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "source": "text",
+      "selector": ".card-title"
+    },
+    "date": {
+      "type": "string",
+      "source": "text",
+      "selector": ".card-date"
+    },
+    "time": {
+      "type": "string",
+      "source": "text",
+      "selector": ".card-time"
+    },
+    "location": {
+      "type": "string",
+      "source": "text",
+      "selector": ".card-location"
+    },
+    "description": {
+      "type": "string",
+      "source": "html",
+      "selector": ".card-description"
+    },
+    "registrationLink": {
+      "type": "string",
+      "source": "attribute",
+      "attribute": "href",
+      "selector": ".card-registration-link a"
+    },
+    "selectedCategories": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "textdomain": "clockwork-card-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

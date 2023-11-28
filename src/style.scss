@@ -1,0 +1,68 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap");
+#clockwork-card-block-editor .components-base-control {
+	margin: 10px 0;
+}
+.card {
+	padding: 0;
+	font-family: "Work Sans", sans-serif !important;
+
+	&:hover {
+		box-shadow: 0 0 0 0 0.25rem;
+	}
+
+	.header {
+		background-color: #eeeded;
+		color: #222222;
+		display: flex;
+		border-bottom: #cccccc 1px solid;
+	}
+	.header > div {
+		padding: 15px 20px;
+	}
+	.card-date {
+		flex: 20%;
+		border-right: #cccccc 1px solid;
+	}
+	.card-location {
+		flex: 80%;
+	}
+	.card-title {
+		color: #005ead;
+		font-size: 32px;
+		line-height: 40px;
+		margin: 10px 20px;
+	}
+	.card-description,
+	.card-registration-link {
+		margin: 10px 20px;
+	}
+	.card-registration-link a {
+		background-color: #c5e5ec;
+		color: #005ead;
+		text-decoration: none;
+		padding: 0.7em;
+		margin: 10px 0;
+		display: block;
+		max-width: 150px;
+		font-weight: bold;
+		text-align: center;
+	}
+	.card-registration-link a:hover {
+		opacity: 0.8;
+	}
+	.card-categories {
+		background-color: #e5eff7;
+		overflow: auto;
+		padding: 10px 20px;
+		margin: 20px 0 0;
+	}
+}
+.wp-block-create-block-clockwork-card-block {
+	background-color: #cccccc;
+}
